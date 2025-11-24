@@ -1,0 +1,27 @@
+{
+  "name": "g2labs-api",
+  "version": "0.0.1",
+  "description": "Edge API server for private use",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "keywords": [
+    "API",
+    "small",
+    "server"
+  ],
+  "author": "Grzegorz Grzęda",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.11",
+    "winston": "^3.18.3"
+  }
+}
