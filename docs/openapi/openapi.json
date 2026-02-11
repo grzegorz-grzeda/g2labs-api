@@ -1,0 +1,108 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "G2Labs API",
+    "version": "0.1.0",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/docs/openapi.json": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/healthz": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "EchoRequest": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "hello"
+        },
+        "count": {
+          "type": "number",
+          "example": 1
+        }
+      }
+    },
+    "EchoResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "example": "hello"
+            },
+            "count": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        }
+      }
+    },
+    "HealthResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "ok": {
+              "type": "boolean",
+              "example": true
+            }
+          }
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "example": "VALIDATION_ERROR"
+            },
+            "message": {
+              "type": "string",
+              "example": "Invalid request data"
+            },
+            "details": {
+              "type": "object",
+              "properties": {}
+            },
+            "requestId": {
+              "type": "string",
+              "example": "req_123"
+            }
+          }
+        }
+      }
+    }
+  }
+}
