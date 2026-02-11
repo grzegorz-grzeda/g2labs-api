@@ -1,6 +1,20 @@
-import express from "express";
+import { createHttpApp } from "./transports/http/app.js";
 
-const app = express();
-app.get("/healthz", (_req, res) => res.json({ data: { ok: true } }));
+const PORT = Number(process.env.PORT ?? 3000);
 
-app.listen(3000, () => console.log("Listening on :3000"));
+async function main(): Promise<void> {
+    // later: load config, init logger, connect mongo, build services/repos, etc.
+    const deps = {};
+
+    const app = createHttpApp(deps);
+    app.listen(PORT, () => {
+        // eslint-disable-next-line no-console
+        console.log(`Server running on :${PORT}`);
+    });
+}
+
+main().catch((err) => {
+    // eslint-disable-next-line no-console
+    console.error(err);
+    process.exit(1);
+});
